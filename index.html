@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+    <script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="code">
+				<span class="comments">/**</span><br />
+				<span class="space"/><span class="comments">* Today is valentine's day,</span><br />
+				<span class="space"/><span class="comments">* so I write some words to our Valentine's Day.</span><br />
+				<span class="space"/><span class="comments">*/</span><br />
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"T-mac(包包)"</span>);<br />
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"ZERO(鑫鑫)"</span>);<br />
+				<span class="comments">// Dec 15, 2019, I asked you if you would be my girlfriend. </span><br />
+				i.love(u);<br />
+				<span class="comments">// Luckily, you accepted and became my girlfriend eversince.</span><br />
+				u.accepted();<br />
+				<span class="comments">// Since then, I miss u every day.</span><br />
+				i.miss(u);<br />
+				<span class="comments">// And take care of u and our love.</span><br />
+				i.takeCareOf(u);<br />
+				<span class="comments">// To u</span><br />
+				<span class="keyword">今日，宜热烈。</span></span>;<br />
+				<span class="keyword">我们在一起的第60多1天，也是我们的第一个情人节。</span> <br />
+				<span class="placeholder"/>虽然我们不能在一起，但是，距离，并不是对爱的禁锢，<br />
+				<span class="placeholder"/>而是我对你的想念，所以让看见变成想念。<br />
+				<span class="placeholder"/>虽然不是在最好的时光遇见了你，而是因为有你在，我才有了最好和时光。<br />
+				<span class="placeholder"/>和你在一起，很甜，也很温暖！<br /><br />
+				<span class="placeholder"/>This is why we love！<br /><br />
+				u and i = ?
+				i.liveHappilyWith(u);<br />
+			</div>
+			<div id="loveHeart">
+				<canvas id="garden" style="display:none"></canvas>
+				<div id="words" style="margin-left:40%;">
+					<div id="messages">
+						ZERO, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Acompany you all the time and ever.<br/>
+						<div class="signature">- T-mac</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2019, 11, 15);
+		together.setHours(21);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+		
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+"; 
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+		    document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 5000);
+
+			timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+</html>
