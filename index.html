@@ -12,6 +12,7 @@
 		#content{
 		  padding:10%;
 		}
+	
 		
 	</style>
 	<link href="css/default.css" type="text/css" rel="stylesheet">
@@ -22,7 +23,7 @@
 </head>
 
 <body>
-<audio id="bg-music" controls preload="auto" src="./2.mp3" loop="loop"></audio>
+<audio id="myaudio" controls="controls" muted  autoplay="autoplay" preload="auto" src="./2.mp3" loop="loop"></audio>
 	<div id="mainDiv">
 		<div id="content">
 			<div id="code">
@@ -58,10 +59,18 @@
 		
 	</div>
 	<script type="text/javascript">
+	setTimeout(function(){
+	console.log("===")
+	 document.getElementById("myaudio").muted = true;
+                document.getElementById("myaudio").play()
+	
+	},1000)
+	
+
 
 		document.addEventListener('DOMContentLoaded', function () {
 			function audioAutoPlay() {
-				var audio = document.getElementById('bg-music');
+				var audio = document.getElementById('myaudio');
 					audio.play();
 				document.addEventListener("WeixinJSBridgeReady", function () {
 					audio.play();
@@ -107,4 +116,5 @@
 	</script>
 </body>
 </html>
+
 
