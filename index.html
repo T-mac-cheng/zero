@@ -18,11 +18,11 @@
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/garden.js"></script>
     <script type="text/javascript" src="js/functions.js"></script>
+	
 </head>
 
 <body>
-<audio src="2.mp3"  autoplay="autoplay" loop="loop" preload="auto" type="audio/mp3" id="myaudio" >
-</audio>
+<audio id="bg-music" controls preload="auto" src="./2.mp3" loop="loop"></audio>
 	<div id="mainDiv">
 		<div id="content">
 			<div id="code">
@@ -40,6 +40,7 @@
 				<span class="placeholder"/>我说过你的重要时刻我都在<br />
 				<span class="keyword"/>一直陪着你的三哥 <br />
 			</div>
+			
 			<div id="loveHeart" style="display:none">
 				<canvas id="garden"></canvas>
 				<div id="words" style="">
@@ -57,15 +58,20 @@
 		
 	</div>
 	<script type="text/javascript">
-	$(function(){
-	
-	document.getElementById("myaudio").muted = false;
-	document.getElementById("myaudio").play()
-	})
-		
 
-                 
+		document.addEventListener('DOMContentLoaded', function () {
+			function audioAutoPlay() {
+				var audio = document.getElementById('bg-music');
+					audio.play();
+				document.addEventListener("WeixinJSBridgeReady", function () {
+					audio.play();
+				}, false);
+			}
+			audioAutoPlay();
+		});
+				
 
+             
 
 		var offsetX = $("#loveHeart").width() / 2;
 		var offsetY = $("#loveHeart").height() / 2 - 55;
@@ -101,3 +107,4 @@
 	</script>
 </body>
 </html>
+
